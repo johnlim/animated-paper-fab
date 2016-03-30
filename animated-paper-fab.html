@@ -27,10 +27,21 @@ Example:
       behaviors: [Polymer.NeonAnimationRunnerBehavior],
 
       properties: {
+
+        /**
+         * If true, the element is animating
+         */
         animated: {
           type: Boolean,
           value: false,
           readOnly: true
+        },
+        /**
+         * Specifies the icon name or index in the set of icons available in
+         * the icon's icon set.
+         */
+        icon: {
+          type: String
         },
         animationConfig: {
           value:  function() {
