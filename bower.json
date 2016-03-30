@@ -3,7 +3,7 @@
   "authors": [
     "John Lim Ding Wei <johnlim.dingwei@gmail.com>"
   ],
-  "description": "An paper-fab element that animates. Ideal for empty states that require user attention to the paper-fab.",
+  "description": "A paper-fab element that animates. Ideal for empty states that require user's attention to the paper-fab.",
   "main": "animated-paper-fab.html",
   "keywords": [
     "web-component",
