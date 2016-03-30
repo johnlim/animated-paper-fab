@@ -43,12 +43,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('play() should start the animation ', function() {
-          myEl.animated = false;
           myEl.play();
           assert.equal(myEl.animated, true);
         });
 
         test('stop() should stop the animation ', function() {
+          myEl.play();
           myEl.stop();
           assert.equal(myEl.animated, false);
         });
