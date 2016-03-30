@@ -54,7 +54,8 @@ Example:
                 }]
             }
           }
-        }
+        },
+        _asyncHandle: Object
       },
 
       // Element Lifecycle
@@ -93,7 +94,7 @@ Example:
        */
       play: function() {
         this.playAnimation('bounce');
-        this.async(this.play, 5000)
+        this._asyncHandle = this.async(this.play, 5000);
         this._setAnimated(true);
       },
 
@@ -102,6 +103,7 @@ Example:
        *
        */
       stop: function() {
+        this.cancelAsync(this._asyncHandle)
         this.cancelAnimation();
         this._setAnimated(false);
       },
