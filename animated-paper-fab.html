@@ -93,6 +93,8 @@ Example:
        *
        */
       play: function() {
+        this.cancelAsync(this._asyncHandle)
+        this.cancelAnimation();
         this.playAnimation('bounce');
         this._asyncHandle = this.async(this.play, 5000);
         this._setAnimated(true);
