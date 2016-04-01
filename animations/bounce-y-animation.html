@@ -23,11 +23,14 @@
 
       this._effect = new KeyframeEffect(node, [
         {offset: 0 , 'transform': 'translate(0)'},
-        {offset: 0.5,'transform': 'translateY(-100%)'},
-        {offset: 0.7,'transform': 'translateY(0)'},
-        {offset: 0.95,'transform': 'translateY(-80%)'},
-        {offset: 0.98,'transform': 'translateY(0)'},
-        {offset: 1,'transform': 'translateY(-50%)'}
+        {offset: 0.4,'transform': 'translateY(-90%)'},
+        {offset: 0.6,'transform': 'translateY(0)'},
+        {offset: 0.8,'transform': 'translateY(-75%)'},
+        {offset: 0.9,'transform': 'translateY(0)'},
+        {offset: 0.95,'transform': 'translateY(-50%)'},
+        {offset: 0.97,'transform': 'translateY(0)'},
+        {offset: 0.99,'transform': 'translateY(-25%)'},
+        {offset: 1,'transform': 'translateY(0)'}
       ], this.timingFromConfig(config));
 
       return this._effect;
