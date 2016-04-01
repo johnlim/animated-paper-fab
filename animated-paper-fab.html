@@ -1,7 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
 <link rel="import" href="../paper-fab/paper-fab.html">
-<link rel="import" href="./animations/bounce-animation.html">
+<link rel="import" href="./animations/bounce-y-animation.html">
+<link rel="import" href="./animations/bounce-z-animation.html">
 
 <!--
 A paper-fab element that animates. Ideal for empty states that require user's attention to the paper-fab.
@@ -46,9 +47,9 @@ Example:
         animationConfig: {
           value:  function() {
             return {
-              'bounce': [
+              'bounce-z': [
                 {
-                  name: 'bounce-animation',
+                  name: 'bounce-z-animation',
                   node: this.$.fab,
                   timing: {duration: 2000}
                 }]
@@ -95,7 +96,7 @@ Example:
       play: function() {
         this.cancelAsync(this._asyncHandle)
         this.cancelAnimation();
-        this.playAnimation('bounce');
+        this.playAnimation('bounce-z');
         this._asyncHandle = this.async(this.play, 5000);
         this._setAnimated(true);
       },
