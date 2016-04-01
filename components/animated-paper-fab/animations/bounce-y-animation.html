@@ -1,0 +1,38 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../neon-animation/neon-animation-behavior.html">
+<link rel="import" href="../../neon-animation/web-animations.html">
+
+<script>
+
+  Polymer({
+
+    is: 'bounce-y-animation',
+
+    behaviors: [
+      Polymer.NeonAnimationBehavior
+    ],
+
+    configure: function(config) {
+      var node = config.node;
+
+      if (config.transformOrigin) {
+        this.setPrefixedProperty(node, 'transformOrigin', config.transformOrigin);
+      } else {
+        this.setPrefixedProperty(node, 'transformOrigin', '50% 0');
+      }
+
+      this._effect = new KeyframeEffect(node, [
+        {offset: 0 , 'transform': 'translate(0)'},
+        {offset: 0.5,'transform': 'translateY(-100%)'},
+        {offset: 0.7,'transform': 'translateY(0)'},
+        {offset: 0.95,'transform': 'translateY(-80%)'},
+        {offset: 0.98,'transform': 'translateY(0)'},
+        {offset: 1,'transform': 'translateY(-50%)'}
+      ], this.timingFromConfig(config));
+
+      return this._effect;
+    }
+
+  });
+
+</script>

@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>animated-paper-fab Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../animated-paper-fab.html">
+    <link rel="import" href="../../iron-icons/av-icons.html">
+  </head>
+  <body unresolved>
+
+    <p>An example of <code>&lt;animated-paper-fab&gt;</code>:</p>
+
+    <animated-paper-fab icon="av:stop" animation="bounce-z"></animated-paper-fab>
+
+    <script>
+      var animatedPaperFab = document.querySelector('animated-paper-fab');
+
+      animatedPaperFab.addEventListener('click', function() {
+        if(animatedPaperFab.animated) {
+          animatedPaperFab.stop();
+          animatedPaperFab.setAttribute("icon", "av:play-arrow");
+          return
+        }
+        animatedPaperFab.play();
+        animatedPaperFab.setAttribute("icon", "av:stop");
+      });
+    </script>
+
+  </body>
+</html>

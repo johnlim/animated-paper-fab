@@ -1,0 +1,37 @@
+{
+  "name": "animated-paper-fab",
+  "authors": [
+    "John Lim Ding Wei <johnlim.dingwei@gmail.com>"
+  ],
+  "description": "A paper-fab element that animates. Ideal for empty states that require user's attention to the paper-fab.",
+  "main": "animated-paper-fab.html",
+  "keywords": [
+    "web-component",
+    "polymer"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/johnlim/animated-paper-fab/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "neon-animation": "PolymerElements/neon-animation#^1.1.1",
+    "paper-fab": "PolymerElements/paper-fab#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.5",
+    "web-component-tester": "^4.2.2"
+  },
+  "_release": "2161119239",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2161119239e8feffd9e297e69b0a2f50cdd1a2c3"
+  },
+  "_source": "git://github.com/johnlim/animated-paper-fab.git",
+  "_target": "master",
+  "_originalSource": "johnlim/animated-paper-fab",
+  "_direct": true
+}

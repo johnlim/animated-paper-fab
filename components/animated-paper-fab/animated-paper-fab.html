@@ -1,0 +1,129 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+<link rel="import" href="./animations/bounce-y-animation.html">
+<link rel="import" href="./animations/bounce-z-animation.html">
+
+<!--
+A paper-fab element that animates. Ideal for empty states that require user's attention to the paper-fab.
+
+Example:
+
+    <animated-paper-fab animation="bounce"></animated-paper-fab>
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="animated-paper-fab">
+  <template>
+    <style>
+    </style>
+    <paper-fab id="fab" icon="[[icon]]"></paper-fab>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'animated-paper-fab',
+      behaviors: [Polymer.NeonAnimationRunnerBehavior],
+
+      properties: {
+
+        /**
+         * If true, the element is animating
+         */
+        animated: {
+          type: Boolean,
+          value: false,
+          readOnly: true
+        },
+        /**
+         * Specifies the icon name or index in the set of icons available in
+         * the icon's icon set.
+         */
+        icon: {
+          type: String
+        },
+        /**
+         * Specifies the animation. Available animation options: 'bounce-y' & 'bounce-z'.
+         */
+        animation: {
+          type: String,
+          value: 'bounce-y'
+        },
+        animationConfig: {
+          value:  function() {
+            return {
+              'bounce-z': [
+                {
+                  name: 'bounce-z-animation',
+                  node: this.$.fab,
+                  timing: {duration: 2000}
+                }],
+              'bounce-y': [
+                {
+                  name: 'bounce-y-animation',
+                  node: this.$.fab,
+                  timing: {duration: 2000}
+                }]
+            }
+          }
+        },
+        _asyncHandle: Object
+      },
+
+      // Element Lifecycle
+
+      ready: function() {
+        // `ready` is called after all elements have been configured, but
+        // propagates bottom-up. This element's children are ready, but parents
+        // are not.
+        //
+        // This is the point where you should make modifications to the DOM (when
+        // necessary), or kick off any processes the element wants to perform.
+        this.play();
+      },
+
+      attached: function() {
+        // `attached` fires once the element and its parents have been inserted
+        // into a document.
+        //
+        // This is a good place to perform any work related to your element's
+        // visual state or active behavior (measuring sizes, beginning animations,
+        // loading resources, etc).
+      },
+
+      detached: function() {
+        // The analog to `attached`, `detached` fires when the element has been
+        // removed from a document.
+        //
+        // Use this to clean up anything you did in `attached`.
+      },
+
+      // Element Behavior
+
+      /**
+       * Plays the animation
+       *
+       */
+      play: function() {
+        this.cancelAsync(this._asyncHandle)
+        this.cancelAnimation();
+        this.playAnimation(this.animation);
+        this._asyncHandle = this.async(this.play, 5000);
+        this._setAnimated(true);
+      },
+
+      /**
+       * Stops the animation
+       *
+       */
+      stop: function() {
+        this.cancelAsync(this._asyncHandle)
+        this.cancelAnimation();
+        this._setAnimated(false);
+      },
+
+    });
+  </script>
+</dom-module>
