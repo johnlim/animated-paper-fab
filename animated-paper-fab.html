@@ -44,12 +44,25 @@ Example:
         icon: {
           type: String
         },
+        /**
+         * Specifies the animation. Available animation options: 'bounce-y' & 'bounce-z'.
+         */
+        animation: {
+          type: String,
+          value: 'bounce-y'
+        },
         animationConfig: {
           value:  function() {
             return {
               'bounce-z': [
                 {
                   name: 'bounce-z-animation',
+                  node: this.$.fab,
+                  timing: {duration: 2000}
+                }],
+              'bounce-y': [
+                {
+                  name: 'bounce-y-animation',
                   node: this.$.fab,
                   timing: {duration: 2000}
                 }]
@@ -96,7 +109,7 @@ Example:
       play: function() {
         this.cancelAsync(this._asyncHandle)
         this.cancelAnimation();
-        this.playAnimation('bounce-z');
+        this.playAnimation(this.animation);
         this._asyncHandle = this.async(this.play, 5000);
         this._setAnimated(true);
       },
